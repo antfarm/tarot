@@ -20,11 +20,8 @@ def main():
 
 
 class Card():
-	TYPE_MIN = 0
-	TYPE_MAJ = 1
-
-	def __init__(self, type):
-		self.type = type
+	def __init__(self, description):
+		self.description = description
 
 	def to_string(self):
 		return None
@@ -34,41 +31,41 @@ class MinorCard(Card):
 	suits = ['wands', 'coins', 'cups', 'swords']
 	ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'P', 'KN', 'Q', 'KI']
 
-	def __init__(self, suit, rank):
-		Card.__init__(self, Card.TYPE_MIN)
+	def __init__(self, suit, rank, description):
+		Card.__init__(self, description)
 		self.suit = suit
 		self.rank = rank
 
 	@staticmethod
-	def all_cards():
+	def all_cards():  # todo: read card data from json file
 		cards = []
 		for suit in MinorCard.suits:
 			for rank in MinorCard.ranks:
-				card = MinorCard(suit, rank)
+				card = MinorCard(suit, rank, "n/a")
 				cards.append(card)
 		return cards
 
 	def to_string(self):
-		return "{0} {1}".format(self.suit, self.rank)
+		return "{0} {1}: {2}".format(self.suit, self.rank, self.description)
 
 
 class MajorCard(Card):
-	names = list(range(23)) # todo: list of names as strings
+	names = list(range(23))
 
-	def __init__(self, name):
-		Card.__init__(self, Card.TYPE_MIN)
+	def __init__(self, name, description):
+		Card.__init__(self, description)
 		self.name = name
 
 	@staticmethod
-	def all_cards():
+	def all_cards(): # todo: read card data from json file
 		cards = []
 		for name in MajorCard.names:
-			card = MajorCard(name)
+			card = MajorCard(name, "n/a")
 			cards.append(card)
 		return cards
 
 	def to_string(self):
-		return self.name
+		return "{0}: {1}".format(self.name, self.description)
 
 
 class Tarot():
