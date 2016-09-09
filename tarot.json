@@ -1,0 +1,107 @@
+{
+	"coins": {
+
+		"A": {
+			"name": "dsd",
+			"descr": ";lk;lk"
+		},
+
+		"2": {
+			"name": "dsd",
+			"descr": ";lk;lk"
+		},
+
+	},
+
+	"swords": {
+		"A": {
+			"name": "dsd",
+			"descr": ";lk;lk"
+		},
+
+		"2": {
+			"name": "dsd",
+			"descr": ";lk;lk"
+		},
+
+	},
+
+	"wands": {
+
+	},
+
+	"cups": {
+
+	}
+}
+
+
+
+
+
+
+
+		{
+			"suit": "coins",
+			"rank": "A",
+
+			"name": "Ace of Coins",
+			"desc": 
+		},
+		
+		{
+			"suit": "coins",
+			"rank": "2",
+
+			"name": "2 of Coins"
+		},
+		
+		{
+			"suit": "coins",
+			"rank": "3",
+
+			"name": "3 of Coins"
+		},
+		
+		{
+			"suit": "coins",
+			"rank": "4",
+
+			"name": "4 of Coins"
+		}
+	]
+}
+
+------
+{
+	"cards": [
+		{
+			"suit": "coins",
+			"rank": "A",
+
+			"name": "Ace of Coins",
+			"desc"
+		},
+		
+		{
+			"suit": "coins",
+			"rank": "2",
+
+			"name": "2 of Coins"
+		},
+		
+		{
+			"suit": "coins",
+			"rank": "3",
+
+			"name": "3 of Coins"
+		},
+		
+		{
+			"suit": "coins",
+			"rank": "4",
+
+			"name": "4 of Coins"
+		}
+	]
+}
