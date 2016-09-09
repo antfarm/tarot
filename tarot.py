@@ -27,10 +27,7 @@ class Card():
 		self.type = type
 
 	def to_string(self):
-		if self.type == Card.TYPE_MIN:
-			return "{0} {1}".format(self.suit, self.rank)
-		elif self.type == Card.TYPE_MAJ:
-			return self.name
+		return None
 
 
 class MinorCard(Card):
@@ -38,7 +35,7 @@ class MinorCard(Card):
 	ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'P', 'KN', 'Q', 'KI']
 
 	def __init__(self, suit, rank):
-		self.type = Card.TYPE_MIN
+		Card.__init__(self, Card.TYPE_MIN)
 		self.suit = suit
 		self.rank = rank
 
@@ -51,12 +48,15 @@ class MinorCard(Card):
 				cards.append(card)
 		return cards
 
+	def to_string(self):
+		return "{0} {1}".format(self.suit, self.rank)
+
 
 class MajorCard(Card):
 	names = list(range(23)) # todo: list of names as strings
 
 	def __init__(self, name):
-		self.type = Card.TYPE_MAJ
+		Card.__init__(self, Card.TYPE_MIN)
 		self.name = name
 
 	@staticmethod
@@ -66,6 +66,9 @@ class MajorCard(Card):
 			card = MajorCard(name)
 			cards.append(card)
 		return cards
+
+	def to_string(self):
+		return self.name
 
 
 class Tarot():
