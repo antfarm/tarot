@@ -42,6 +42,15 @@ class MinorCard(Card):
 		self.suit = suit
 		self.rank = rank
 
+	@staticmethod
+	def all_cards():
+		cards = []
+		for suit in MinorCard.suits:
+			for rank in MinorCard.ranks:
+				card = MinorCard(suit, rank)
+				cards.append(card)
+		return cards
+
 
 class MajorCard(Card):
 	names = list(range(23)) # todo: list of names as strings
@@ -50,27 +59,23 @@ class MajorCard(Card):
 		self.type = Card.TYPE_MAJ
 		self.name = name
 
+	@staticmethod
+	def all_cards():
+		cards = []
+		for name in MajorCard.names:
+			card = MajorCard(name)
+			cards.append(card)
+		return cards
+
 
 class Tarot():
 	def __init__(self):
-		
-		self.cards = []
-
-		for suit in MinorCard.suits:
-			for rank in MinorCard.ranks:
-				card = MinorCard(suit, rank)
-				self.cards.append(card)
-
-		for name in MajorCard.names:
-			card = MajorCard(name)
-			self.cards.append(card)
-
+		self.cards = MajorCard.all_cards() + MinorCard.all_cards()
 
 	def random_card(self):
 		index = random.randint(1, len(self.cards)) - 1
 		card = self.cards[index]
 		return card
-
 
 	def draw_random_card(self):
 		card = self.random_card()
