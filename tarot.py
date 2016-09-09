@@ -13,29 +13,57 @@ def main():
 
 	for _ in range(3):
 		card = tarot.draw_random_card()
-		print("{0} {1}".format(card.suit, card.rank))
+		print(card.to_string())
 		cards.append(card)
 
 	print("{0} cards in the deck".format(len(tarot.cards)))
 
 
 class Card():
+	TYPE_MIN = 0
+	TYPE_MAJ = 1
+
+	def __init__(self, type):
+		self.type = type
+
+	def to_string(self):
+		if self.type == Card.TYPE_MIN:
+			return "{0} {1}".format(self.suit, self.rank)
+		elif self.type == Card.TYPE_MAJ:
+			return self.name
+
+
+class MinorCard(Card):
+	suits = ['wands', 'coins', 'cups', 'swords']
+	ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'P', 'KN', 'Q', 'KI']
+
 	def __init__(self, suit, rank):
+		self.type = Card.TYPE_MIN
 		self.suit = suit
 		self.rank = rank
 
 
+class MajorCard(Card):
+	names = list(range(23)) # todo: list of names as strings
+
+	def __init__(self, name):
+		self.type = Card.TYPE_MAJ
+		self.name = name
+
+
 class Tarot():
 	def __init__(self):
-		self.suits = ['wands', 'coins', 'cups', 'swords']
-		self.ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'P', 'KN', 'Q', 'KI']
 		
 		self.cards = []
 
-		for suit in self.suits:
-			for rank in self.ranks:
-				card = Card(suit, rank)
+		for suit in MinorCard.suits:
+			for rank in MinorCard.ranks:
+				card = MinorCard(suit, rank)
 				self.cards.append(card)
+
+		for name in MajorCard.names:
+			card = MajorCard(name)
+			self.cards.append(card)
 
 
 	def random_card(self):
