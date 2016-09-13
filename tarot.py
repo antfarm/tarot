@@ -13,26 +13,29 @@ def main():
 
 	for _ in range(3):
 		card = tarot.draw_random_card()
-		print(card.to_string())
 		cards.append(card)
 
 	print("{0} cards in the deck".format(len(tarot.cards)))
 
+	for card in cards:
+		print(card.to_string())
+
 
 class Card():
-	def __init__(self, description):
+	def __init__(self, name, description):
+		self.name = name
 		self.description = description
 
 	def to_string(self):
-		return None
+		return "{0}: {1}".format(self.name, self.description)
 
 
 class MinorCard(Card):
 	suits = ['wands', 'coins', 'cups', 'swords']
 	ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'P', 'KN', 'Q', 'KI']
 
-	def __init__(self, suit, rank, description):
-		Card.__init__(self, description)
+	def __init__(self, suit, rank, name, description):
+		Card.__init__(self, name, description)
 		self.suit = suit
 		self.rank = rank
 
@@ -41,20 +44,19 @@ class MinorCard(Card):
 		cards = []
 		for suit in MinorCard.suits:
 			for rank in MinorCard.ranks:
-				card = MinorCard(suit, rank, "n/a")
+				card = MinorCard(suit, rank, "n/a", "n/a")
 				cards.append(card)
 		return cards
 
 	def to_string(self):
-		return "{0} {1}: {2}".format(self.suit, self.rank, self.description)
+		return "[{0}|{1}] {2}: {3}".format(self.suit, self.rank, self.name, self.description)
 
 
 class MajorCard(Card):
 	names = list(range(23))
 
 	def __init__(self, name, description):
-		Card.__init__(self, description)
-		self.name = name
+		Card.__init__(self, name, description)
 
 	@staticmethod
 	def all_cards(): # todo: read card data from json file
