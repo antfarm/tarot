@@ -1,107 +1,35 @@
 {
-	"coins": {
-
-		"A": {
-			"name": "dsd",
-			"descr": ";lk;lk"
-		},
-
-		"2": {
-			"name": "dsd",
-			"descr": ";lk;lk"
-		},
-
-	},
-
-	"swords": {
-		"A": {
-			"name": "dsd",
-			"descr": ";lk;lk"
-		},
-
-		"2": {
-			"name": "dsd",
-			"descr": ";lk;lk"
-		},
-
-	},
-
-	"wands": {
-
-	},
-
-	"cups": {
-
-	}
-}
-
-
-
-
-
-
-
+	"minor": [
 		{
 			"suit": "coins",
 			"rank": "A",
-
 			"name": "Ace of Coins",
-			"desc": 
+			"desc": ""
 		},
-		
 		{
 			"suit": "coins",
 			"rank": "2",
-
-			"name": "2 of Coins"
+			"name": "2 of Coins",
+			"desc": ""
 		},
-		
 		{
 			"suit": "coins",
 			"rank": "3",
-
-			"name": "3 of Coins"
+			"name": "3 of Coins",
+			"desc": ""
 		},
-		
 		{
 			"suit": "coins",
 			"rank": "4",
-
-			"name": "4 of Coins"
+			"name": "4 of Coins",
+			"desc": ""
 		}
-	]
-}
+	],
 
-------
-{
-	"cards": [
+	"major": [
 		{
-			"suit": "coins",
-			"rank": "A",
-
-			"name": "Ace of Coins",
-			"desc"
-		},
-		
-		{
-			"suit": "coins",
-			"rank": "2",
-
-			"name": "2 of Coins"
-		},
-		
-		{
-			"suit": "coins",
-			"rank": "3",
-
-			"name": "3 of Coins"
-		},
-		
-		{
-			"suit": "coins",
-			"rank": "4",
-
-			"name": "4 of Coins"
+			"name": "",
+			"desc": ""
 		}
 	]
 }
